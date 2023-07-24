@@ -1,0 +1,30 @@
+Node JS
+1. Node.js is a cross-platform, open-source server environment that can run on Windows, 
+Linux, Unix, macOS, and more. Node.js is a back-end JavaScript runtime environment.
+2. Node.js uses JavaScript on the server.
+3. Node.js also provides a rich library of various JavaScript modules which simplifies 
+the development of web applications using Node.js to a great extent.
+
+What Can Node.js Do
+Node.js can generate dynamic page content
+Node.js can create, open, read, write, delete, and close files on the server
+Node.js can collect form data
+Node.js can add, delete, modify data in your database
+
+What is a Node.js File?
+Node.js files contain tasks that will be executed on certain events
+A typical event is someone trying to access a port on the server
+Node.js files have extension ".js"
+
+Features of Node.js
+Following are some of the important features that make Node.js the first choice of software architects.
+1. Asynchronous and Event Driven − All APIs of Node.js library are asynchronous, 
+that is, non-blocking. It essentially means a 
+Node.js based server never waits for an API to return data. 
+The server moves to the next API after calling it and a notification mechanism of Events 
+of Node.js helps the server to get a response from the previous API call.
+2. Very Fast − Being built on Google Chrome's V8 JavaScript Engine, Node.js library is very fast in code execution.
+3. Single Threaded but Highly Scalable − Node.js uses a single threaded model with event looping. 
+Event mechanism helps the server to respond in a non-blocking way and makes the server highly scalable as opposed to traditional servers which create limited threads to handle requests. 
+Node.js uses a single threaded program and the same program can provide service to a much larger number of requests than traditional servers like Apache HTTP Server.
+4. No Buffering − Node.js applications never buffer any data. These applications simply output the data in chunks.
