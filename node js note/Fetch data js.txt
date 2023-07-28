@@ -111,4 +111,124 @@ con.connect(function(err) {
 });
 
 
+<---------------------------------------------------------------------------------Limit-------------------------------------------------------------------------->
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "yourusername",
+  password: "yourpassword",
+  database: "mydb"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  var sql = "SELECT * FROM customers LIMIT 5";
+  con.query(sql, function (err, result) {
+    if (err) throw err;			
+    console.log(result);
+  });
+});
+
+Start From Another Position
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "yourusername",
+  password: "yourpassword",
+  database: "mydb"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  var sql = "SELECT * FROM customers LIMIT 5 OFFSET 2";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
+
+"OFFSET 2", means starting from the third position
+
+
+Start from position 3, and return the next 5 records:
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "yourusername",
+  password: "yourpassword",
+  database: "mydb"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  var sql = "SELECT * FROM customers LIMIT 2, 5";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
+
+
+
+
+<--------------------------------------------------------------------------------------join two table------------------------------------------------------------------------------>
+ Join Two or More Tables
+
+Table 1 - users
+Table 2 - products
+
+user - id (primary key),name, favourite_product
+products - id (primary key), product
+
+products															users
+id     product							id				name				favourite_product
+1                       chocolate				100				rahul				2
+2      biriyani							101				manu				1
+3      ice cream						102				vishnu			        3
+4      cakes							103				mahesh			        2
+ 								104				hari				4
+
+ 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "yourusername",
+  password: "yourpassword",
+  database: "mydb"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  var sql = "SELECT users.name AS user, products.product AS favorite 
+  FROM users JOIN products ON users.favorite_product = products.id";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
+<----------------------------------------------------------------------DROP------------------------------------------------------------------------->
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "yourusername",
+  password: "yourpassword",
+  database: "mydb"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  var sql = "DROP TABLE customers";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table deleted");
+  });
+});
